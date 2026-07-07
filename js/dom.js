@@ -1,71 +1,53 @@
 /**
- * ============================================================================
+ * =============================================================================
  * Archivo: dom.js
- * ----------------------------------------------------------------------------
- * Centraliza todas las referencias al DOM.
- * Este archivo debe ser el único responsable de obtener elementos mediante
- * document.getElementById() o document.querySelector().
- * ============================================================================
+ * -----------------------------------------------------------------------------
+ * Centraliza el acceso a todos los elementos del DOM.
+ * Ningún otro módulo debe utilizar document.getElementById() ni
+ * document.querySelector().
+ * =============================================================================
  */
 
-/**
- * Hero principal.
- * @type {HTMLElement}
- */
-export const hero = document.querySelector(".hero");
+/*==============================================================================
+    SECCIONES
+==============================================================================*/
 
-/**
- * Sección de invitación.
- * @type {HTMLElement}
- */
-export const invitation = document.getElementById("invitation");
+export const hero =
+    document.querySelector(".hero");
 
-/**
- * Fondo animado.
- * @type {HTMLElement}
- */
-export const background = document.getElementById("background");
+export const invitation =
+    document.getElementById("invitation");
 
-/**
- * Contenedor de partículas.
- * @type {HTMLElement}
- */
-export const particles = document.getElementById("particles");
+export const background =
+    document.getElementById("background");
 
-/**
- * Botón para descubrir la invitación.
- * @type {HTMLButtonElement}
- */
-export const discover = document.getElementById("discover");
+export const particles =
+    document.getElementById("particles");
 
-/**
- * Botón de Google Maps.
- * @type {HTMLButtonElement}
- */
-export const maps = document.getElementById("maps");
+/*==============================================================================
+    BOTONES
+==============================================================================*/
 
-/**
- * Botón para agendar.
- * @type {HTMLButtonElement}
- */
-export const calendar = document.getElementById("calendar");
+export const discover =
+    document.getElementById("discover");
 
-/**
- * Botón para confirmar asistencia.
- * @type {HTMLButtonElement}
- */
-export const confirm = document.getElementById("confirm");
+export const maps =
+    document.getElementById("maps");
 
-/**
- * Botón para controlar la música.
- * @type {HTMLButtonElement}
- */
-export const music = document.getElementById("music");
+export const calendar =
+    document.getElementById("calendar");
 
-/**
- * Etiquetas del contador.
- */
-export const countdown = {
+export const confirm =
+    document.getElementById("confirm");
+
+export const music =
+    document.getElementById("music");
+
+/*==============================================================================
+    CUENTA REGRESIVA
+==============================================================================*/
+
+export const countdown = Object.freeze({
 
     days: document.getElementById("days"),
 
@@ -75,16 +57,14 @@ export const countdown = {
 
     seconds: document.getElementById("seconds")
 
-};
+});
 
-/**
- * Todas las tarjetas de información.
- * @type {NodeListOf<HTMLElement>}
- */
-export const boxes = document.querySelectorAll(".box");
+/*==============================================================================
+    COLECCIONES
+==============================================================================*/
 
-/**
- * Todos los botones de acciones.
- * @type {NodeListOf<HTMLButtonElement>}
- */
-export const actions = document.querySelectorAll(".action");
+export const boxes =
+    document.querySelectorAll(".box");
+
+export const actions =
+    document.querySelectorAll(".action");

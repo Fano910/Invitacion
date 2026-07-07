@@ -1,19 +1,25 @@
 /**
- * ============================================================================
+ * =============================================================================
  * Archivo: animations.js
- * ----------------------------------------------------------------------------
- * Administra todas las animaciones de la interfaz.
- *
- * - Aparición de tarjetas.
- * - Efecto hover de botones.
- * - Efecto de brillo sobre tarjetas.
- * ============================================================================
+ * -----------------------------------------------------------------------------
+ * Controla todas las animaciones dinámicas de la interfaz.
+ * =============================================================================
  */
 
-import { boxes, actions } from "./dom.js";
+import {
+
+    boxes,
+
+    actions
+
+} from "./dom.js";
+
+/*==============================================================================
+    OBSERVER
+==============================================================================*/
 
 /**
- * Inicializa la aparición de las tarjetas mediante IntersectionObserver.
+ * Inicializa la aparición de tarjetas.
  */
 function initializeCards() {
 
@@ -24,21 +30,31 @@ function initializeCards() {
             if (!entry.isIntersecting)
                 return;
 
-            entry.target.animate(
-                [
-                    {
-                        opacity: 0,
-                        transform: "translateY(60px)"
-                    },
-                    {
-                        opacity: 1,
-                        transform: "translateY(0)"
-                    }
-                ],
+            entry.target.animate([
+
                 {
-                    duration: 700,
-                    fill: "forwards"
-                });
+
+                    opacity: 0,
+
+                    transform: "translateY(60px)"
+
+                },
+
+                {
+
+                    opacity: 1,
+
+                    transform: "translateY(0)"
+
+                }
+
+            ], {
+
+                duration: 700,
+
+                fill: "forwards"
+
+            });
 
         });
 
@@ -55,23 +71,39 @@ function initializeCards() {
 }
 
 /**
- * Inicializa la animación hover de los botones principales.
+ * Inicializa la animación de botones.
  */
-function initializeButtons() {
+function initializeButtonsAnimation() {
 
     actions.forEach(button => {
 
         button.addEventListener("mouseenter", () => {
 
-            button.animate(
-                [
-                    { transform: "scale(1)" },
-                    { transform: "scale(1.06)" },
-                    { transform: "scale(1)" }
-                ],
+            button.animate([
+
                 {
-                    duration: 300
-                });
+
+                    transform: "scale(1)"
+
+                },
+
+                {
+
+                    transform: "scale(1.06)"
+
+                },
+
+                {
+
+                    transform: "scale(1)"
+
+                }
+
+            ], {
+
+                duration: 300
+
+            });
 
         });
 
@@ -80,7 +112,7 @@ function initializeButtons() {
 }
 
 /**
- * Inicializa el efecto de iluminación de las tarjetas.
+ * Inicializa el brillo de las tarjetas.
  */
 function initializeGlow() {
 
@@ -91,6 +123,7 @@ function initializeGlow() {
             const rect = box.getBoundingClientRect();
 
             const x = event.clientX - rect.left;
+
             const y = event.clientY - rect.top;
 
             box.style.background =
@@ -111,14 +144,18 @@ function initializeGlow() {
 
 }
 
+/*==============================================================================
+    API PÚBLICA
+==============================================================================*/
+
 /**
- * Inicializa todas las animaciones de la interfaz.
+ * Inicializa todas las animaciones.
  */
 export function initializeAnimations() {
 
     initializeCards();
 
-    initializeButtons();
+    initializeButtonsAnimation();
 
     initializeGlow();
 

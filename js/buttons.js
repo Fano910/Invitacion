@@ -1,52 +1,93 @@
-import { MAPS_URL, WHATSAPP_URL, CALENDAR } from "./config.js";
-import {
-    maps,
-    confirm,
-    calendar,
-    music
-} from "./dom.js";
-import { toggle } from "./audio.js";
-
 /**
- * ============================================================================
+ * =============================================================================
  * Archivo: buttons.js
- * ----------------------------------------------------------------------------
- * Administra todos los botones interactivos de la invitación.
- * ============================================================================
+ * -----------------------------------------------------------------------------
+ * Administra todos los botones de la aplicación.
+ * =============================================================================
  */
 
+import {
+
+    MAPS_URL,
+
+    WHATSAPP_URL,
+
+    CALENDAR
+
+} from "./config.js";
+
+import {
+
+    maps,
+
+    confirm,
+
+    calendar,
+
+    music
+
+} from "./dom.js";
+
+import {
+
+    toggle
+
+} from "./audio.js";
+
+/*==============================================================================
+    FUNCIONES PRIVADAS
+==============================================================================*/
+
 /**
- * Abre la ubicación en Google Maps.
+ * Abre Google Maps.
  */
 function openMaps() {
 
-    window.open(MAPS_URL, "_blank");
+    window.open(
+
+        MAPS_URL,
+
+        "_blank"
+
+    );
 
 }
 
 /**
- * Abre WhatsApp para confirmar asistencia.
+ * Abre WhatsApp.
  */
 function confirmAttendance() {
 
-    window.open(WHATSAPP_URL, "_blank");
+    window.open(
+
+        WHATSAPP_URL,
+
+        "_blank"
+
+    );
 
 }
 
 /**
- * Abre Google Calendar con el evento preparado.
+ * Agrega el evento al calendario.
  */
 function openCalendar() {
 
     const url =
         `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(CALENDAR.TITLE)}&dates=${CALENDAR.START}/${CALENDAR.END}`;
 
-    window.open(url, "_blank");
+    window.open(
+
+        url,
+
+        "_blank"
+
+    );
 
 }
 
 /**
- * Cambia el estado de reproducción de la música.
+ * Cambia el estado del reproductor.
  */
 function toggleMusic() {
 
@@ -54,17 +95,45 @@ function toggleMusic() {
 
 }
 
+/*==============================================================================
+    API PÚBLICA
+==============================================================================*/
+
 /**
- * Inicializa todos los botones de la interfaz.
+ * Inicializa todos los botones.
  */
 export function initializeButtons() {
 
-    maps.addEventListener("click", openMaps);
+    maps?.addEventListener(
 
-    confirm.addEventListener("click", confirmAttendance);
+        "click",
 
-    calendar.addEventListener("click", openCalendar);
+        openMaps
 
-    music.addEventListener("click", toggleMusic);
+    );
+
+    confirm?.addEventListener(
+
+        "click",
+
+        confirmAttendance
+
+    );
+
+    calendar?.addEventListener(
+
+        "click",
+
+        openCalendar
+
+    );
+
+    music?.addEventListener(
+
+        "click",
+
+        toggleMusic
+
+    );
 
 }

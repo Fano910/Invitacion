@@ -1,0 +1,192 @@
+/**
+ * =============================================================================
+ * Archivo: invitation.css
+ * -----------------------------------------------------------------------------
+ * Contiene toda la apariencia de la invitación principal.
+ * =============================================================================
+ */
+
+/*==============================================================================
+    CONTENEDOR
+==============================================================================*/
+
+#invitation {
+
+    display: none;
+
+    opacity: 0;
+
+    padding: 80px 20px;
+
+}
+
+.paper {
+
+    width: min(900px, 95%);
+
+    margin: auto;
+
+    padding: 60px;
+
+    border-radius: 35px;
+
+    background: #fff;
+
+    box-shadow: 0 25px 60px rgba(0, 0, 0, .10);
+
+}
+
+.paper h2 {
+
+    margin-bottom: 25px;
+
+    color: #666;
+
+    text-align: center;
+
+    font-family: "Great Vibes", cursive;
+
+    font-size: 64px;
+
+}
+
+.paper p {
+
+    margin: 20px 0;
+
+    text-align: center;
+
+    font-size: 19px;
+
+    line-height: 1.9;
+
+}
+
+/*==============================================================================
+    DIVISOR
+==============================================================================*/
+
+.divider {
+
+    width: 120px;
+
+    height: 4px;
+
+    margin: 35px auto;
+
+    border-radius: 50px;
+
+    background:
+        linear-gradient(90deg,
+            #79d5ff,
+            #ffc7df);
+
+}
+
+/*==============================================================================
+    INFORMACIÓN
+==============================================================================*/
+
+.info {
+
+    display: grid;
+
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+
+    gap: 25px;
+
+    margin-top: 50px;
+
+}
+
+.box {
+
+    padding: 30px;
+
+    border-radius: 25px;
+
+    background:
+        linear-gradient(180deg,
+            #ffffff,
+            #fafafa);
+
+    box-shadow: 0 8px 20px rgba(0, 0, 0, .05);
+
+}
+
+.box h3 {
+
+    margin-bottom: 10px;
+
+    font-size: 22px;
+
+}
+
+.box span {
+
+    color: #666;
+
+    font-size: 16px;
+
+}
+
+/*==============================================================================
+    CUENTA REGRESIVA
+==============================================================================*/
+
+#countdown {
+
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 15px;
+
+    margin-top: 50px;
+
+}
+
+.time {
+
+    padding: 25px;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(135deg,
+            #ecf9ff,
+            #fff4f8);
+
+}
+
+.time h1 {
+
+    color: #555;
+
+    font-size: 40px;
+
+}
+
+.time p {
+
+    margin-top: 8px;
+
+    font-size: 15px;
+
+}
+
+/*==============================================================================
+    ACCIONES
+==============================================================================*/
+
+.actions {
+
+    display: grid;
+
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+
+    gap: 20px;
+
+    margin-top: 60px;
+
+}

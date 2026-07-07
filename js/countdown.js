@@ -1,34 +1,47 @@
-import { EVENT_DATE } from "./config.js";
-import { countdown } from "./dom.js";
-
 /**
- * ============================================================================
+ * =============================================================================
  * Archivo: countdown.js
- * ----------------------------------------------------------------------------
+ * -----------------------------------------------------------------------------
  * Controla la cuenta regresiva del evento.
- * ============================================================================
+ * =============================================================================
  */
 
+import {
+
+    EVENT_DATE
+
+} from "./config.js";
+
+import {
+
+    countdown
+
+} from "./dom.js";
+
+/*==============================================================================
+    FUNCIONES PRIVADAS
+==============================================================================*/
+
 /**
- * Convierte un número a formato de dos dígitos.
+ * Formatea un número a dos dígitos.
  *
- * @param {number} value Número a formatear.
- * @returns {string} Número con dos dígitos.
+ * @param {number} value
+ * @returns {string}
  */
 function format(value) {
 
-    return value.toString().padStart(2, "0");
+    return value
+        .toString()
+        .padStart(2, "0");
 
 }
 
 /**
- * Actualiza el contador mostrado en pantalla.
+ * Actualiza los valores mostrados.
  */
-export function updateCountdown() {
+function update() {
 
-    const now = new Date();
-
-    const diff = EVENT_DATE - now;
+    const diff = EVENT_DATE - new Date();
 
     if (diff <= 0) {
 
@@ -41,25 +54,39 @@ export function updateCountdown() {
 
     }
 
-    const days = Math.floor(diff / 86400000);
-    const hours = Math.floor((diff % 86400000) / 3600000);
-    const minutes = Math.floor((diff % 3600000) / 60000);
-    const seconds = Math.floor((diff % 60000) / 1000);
+    const days =
+        Math.floor(diff / 86400000);
+
+    const hours =
+        Math.floor(diff % 86400000 / 3600000);
+
+    const minutes =
+        Math.floor(diff % 3600000 / 60000);
+
+    const seconds =
+        Math.floor(diff % 60000 / 1000);
 
     countdown.days.textContent = format(days);
+
     countdown.hours.textContent = format(hours);
+
     countdown.minutes.textContent = format(minutes);
+
     countdown.seconds.textContent = format(seconds);
 
 }
 
+/*==============================================================================
+    API PÚBLICA
+==============================================================================*/
+
 /**
- * Inicializa la cuenta regresiva.
+ * Inicializa el contador.
  */
 export function initializeCountdown() {
 
-    updateCountdown();
+    update();
 
-    setInterval(updateCountdown, 1000);
+    setInterval(update, 1000);
 
 }

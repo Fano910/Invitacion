@@ -1,18 +1,19 @@
 /**
-==============================================================================
-Archivo: background.css
-------------------------------------------------------------------------------
-Todo el fondo animado:
+ * =============================================================================
+ * Archivo: background.css
+ * -----------------------------------------------------------------------------
+ * Contiene todos los estilos relacionados con el fondo animado:
+ *
+ * • Fondo principal
+ * • Nubes
+ * • Corazones
+ * • Partículas
+ * =============================================================================
+ */
 
-• Nubes
-• Corazones
-• Partículas
-==============================================================================
-*/
-
-/*==============================
-FONDO
-==============================*/
+/*==============================================================================
+    CONTENEDORES
+==============================================================================*/
 
 #background {
 
@@ -26,15 +27,30 @@ FONDO
 
 }
 
-/*==============================
-NUBES
-==============================*/
+#particles {
+
+    position: fixed;
+
+    inset: 0;
+
+    overflow: hidden;
+
+    pointer-events: none;
+
+    z-index: -5;
+
+}
+
+/*==============================================================================
+    NUBES
+==============================================================================*/
 
 .cloud {
 
     position: absolute;
 
     width: 180px;
+
     height: 60px;
 
     background: #fff;
@@ -49,45 +65,47 @@ NUBES
 
 }
 
-.cloud::before {
-
-    content: "";
-
-    position: absolute;
-
-    width: 80px;
-    height: 80px;
-
-    top: -35px;
-    left: 25px;
-
-    border-radius: 50%;
-
-    background: #fff;
-
-}
-
+.cloud::before,
 .cloud::after {
 
     content: "";
 
     position: absolute;
 
-    width: 95px;
-    height: 95px;
-
-    top: -45px;
-    right: 20px;
-
     border-radius: 50%;
 
     background: #fff;
 
 }
 
+.cloud::before {
+
+    top: -35px;
+
+    left: 25px;
+
+    width: 80px;
+
+    height: 80px;
+
+}
+
+.cloud::after {
+
+    top: -45px;
+
+    right: 20px;
+
+    width: 95px;
+
+    height: 95px;
+
+}
+
 .c1 {
 
     top: 8%;
+
     left: -220px;
 
     animation-duration: 42s;
@@ -97,6 +115,7 @@ NUBES
 .c2 {
 
     top: 28%;
+
     left: -260px;
 
     transform: scale(.8);
@@ -108,6 +127,7 @@ NUBES
 .c3 {
 
     top: 58%;
+
     left: -230px;
 
     transform: scale(1.2);
@@ -115,6 +135,46 @@ NUBES
     animation-duration: 65s;
 
 }
+
+/*==============================================================================
+    CORAZONES
+==============================================================================*/
+
+.heart {
+
+    position: absolute;
+
+    font-size: 20px;
+
+    user-select: none;
+
+    opacity: .30;
+
+    animation: floatHeart linear infinite;
+
+}
+
+/*==============================================================================
+    PARTÍCULAS
+==============================================================================*/
+
+.particle {
+
+    position: absolute;
+
+    border-radius: 50%;
+
+    opacity: .18;
+
+    filter: blur(.5px);
+
+    animation: particle linear infinite;
+
+}
+
+/*==============================================================================
+    ANIMACIONES
+==============================================================================*/
 
 @keyframes cloudMove {
 
@@ -132,22 +192,6 @@ NUBES
 
 }
 
-/*==============================
-CORAZONES
-==============================*/
-
-.heart {
-
-    position: absolute;
-
-    user-select: none;
-
-    opacity: .3;
-
-    animation: floatHeart linear infinite;
-
-}
-
 @keyframes floatHeart {
 
     from {
@@ -161,13 +205,13 @@ CORAZONES
 
     15% {
 
-        opacity: .4;
+        opacity: .40;
 
     }
 
     80% {
 
-        opacity: .4;
+        opacity: .40;
 
     }
 
@@ -179,38 +223,6 @@ CORAZONES
         opacity: 0;
 
     }
-
-}
-
-/*==============================
-PARTÍCULAS
-==============================*/
-
-#particles {
-
-    position: fixed;
-
-    inset: 0;
-
-    pointer-events: none;
-
-    overflow: hidden;
-
-    z-index: -5;
-
-}
-
-.particle {
-
-    position: absolute;
-
-    border-radius: 50%;
-
-    opacity: .18;
-
-    filter: blur(.5px);
-
-    animation: particle linear infinite;
 
 }
 

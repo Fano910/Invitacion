@@ -1,25 +1,39 @@
 /**
- * ============================================================================
+ * =============================================================================
  * Archivo: invitation.js
- * ----------------------------------------------------------------------------
- * Controla la pantalla de bienvenida.
- * ============================================================================
+ * -----------------------------------------------------------------------------
+ * Controla la transición entre la portada y la invitación.
+ * =============================================================================
  */
 
-import { hero, invitation, discover } from "./dom.js";
-import { play } from "./audio.js";
-import { launchConfetti } from "./confetti.js";
+import {
+
+    hero,
+
+    invitation,
+
+    discover
+
+} from "./dom.js";
+
+import {
+
+    play
+
+} from "./audio.js";
+
+import {
+
+    launchConfetti
+
+} from "./confetti.js";
+
+/*==============================================================================
+    FUNCIONES PRIVADAS
+==============================================================================*/
 
 /**
- * ============================================================================
- * Archivo: invitation.js
- * ----------------------------------------------------------------------------
- * Controla la transición entre la pantalla inicial y la invitación.
- * ============================================================================
- */
-
-/**
- * Muestra la invitación con una transición suave.
+ * Muestra la invitación.
  */
 async function showInvitation() {
 
@@ -27,28 +41,46 @@ async function showInvitation() {
 
     invitation.style.display = "block";
 
-    requestAnimationFrame(() => {
+    setTimeout(() => {
 
-        invitation.style.transition = "opacity 1s ease";
+        invitation.style.transition = "1s";
 
         invitation.style.opacity = "1";
 
-    });
+    }, 100);
 
-    await play();
+    try {
+
+        await play();
+
+    } catch (e) {
+
+        console.log("El navegador bloqueó la reproducción automática.");
+
+    }
 
     launchConfetti();
 
 }
 
+/*==============================================================================
+    API PÚBLICA
+==============================================================================*/
+
 /**
- * Inicializa los eventos de la pantalla principal.
+ * Inicializa el módulo.
  */
 export function initializeInvitation() {
 
     if (!discover)
         return;
 
-    discover.addEventListener("click", showInvitation);
+    discover.addEventListener(
+
+        "click",
+
+        showInvitation
+
+    );
 
 }

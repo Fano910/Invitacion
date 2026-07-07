@@ -1,11 +1,15 @@
 /**
- * ============================================================================
+ * =============================================================================
  * Archivo: config.js
- * ----------------------------------------------------------------------------
- * Centraliza toda la configuración de la invitación.
- * Ningún otro archivo debe contener valores "quemados".
- * ============================================================================
+ * -----------------------------------------------------------------------------
+ * Centraliza toda la configuración de la aplicación.
+ * Ningún valor constante debe declararse fuera de este archivo.
+ * =============================================================================
  */
+
+/*==============================================================================
+    FECHA DEL EVENTO
+==============================================================================*/
 
 /**
  * Fecha y hora del evento.
@@ -13,61 +17,81 @@
  */
 export const EVENT_DATE = new Date("2026-07-18T10:00:00");
 
-/**
- * URL principal de Google Maps.
- * @type {string}
- */
-export const MAPS_URL = "https://maps.app.goo.gl/3yHWdpz5kMuYyrAd8";
+/*==============================================================================
+    ENLACES
+==============================================================================*/
 
 /**
- * URL de pruebas.
+ * Ubicación principal.
  * @type {string}
  */
-export const MAPS_URL_TEST = "https://maps.app.goo.gl/iJ3LDftN8YF4kCpv5";
+export const MAPS_URL =
+    "https://maps.app.goo.gl/3yHWdpz5kMuYyrAd8";
 
 /**
- * URL de confirmación por WhatsApp.
+ * Ubicación para pruebas.
+ * @type {string}
+ */
+export const MAPS_TEST_URL =
+    "https://maps.app.goo.gl/iJ3LDftN8YF4kCpv5";
+
+/**
+ * Confirmación por WhatsApp.
  * @type {string}
  */
 export const WHATSAPP_URL =
     "https://wa.me/525642127674?text=¡Hola! Confirmo mi asistencia al Baby Shower. 🩷💙";
 
-/**
- * Archivo de música de fondo.
- * @type {string}
- */
-export const AUDIO_PATH = "assets/atlasaudio-nostalgic-piano.mp3";
+/*==============================================================================
+    AUDIO
+==============================================================================*/
 
 /**
- * Configuración del calendario.
+ * Ruta del archivo de audio.
+ * @type {string}
  */
-export const CALENDAR = {
+export const AUDIO_PATH =
+    "assets/atlasaudio-nostalgic-piano.mp3";
+
+/**
+ * Volumen inicial.
+ * @type {number}
+ */
+export const AUDIO_VOLUME = .35;
+
+/*==============================================================================
+    CALENDARIO
+==============================================================================*/
+
+export const CALENDAR = Object.freeze({
+
+    TITLE: "Baby Shower",
 
     START: "20260718T100000",
 
-    END: "20260718T140000",
+    END: "20260718T140000"
 
-    TITLE: "Baby Shower"
+});
 
-};
+/*==============================================================================
+    CONFETTI
+==============================================================================*/
 
-/**
- * Configuración del confetti.
- */
-export const CONFETTI = {
+export const CONFETTI = Object.freeze({
 
-    PARTICLES: 180,
+    PARTICLE_COUNT: 180,
 
     SPREAD: 120,
 
     ORIGIN_Y: .65
 
-};
+});
 
-/**
- * Configuración de los corazones.
- */
-export const HEARTS = {
+/*==============================================================================
+    CORAZONES
+==============================================================================*/
+
+export const HEARTS = Object.freeze({
 
     INTERVAL: 450,
 
@@ -81,12 +105,13 @@ export const HEARTS = {
 
     MAX_DURATION: 14
 
-};
+});
 
-/**
- * Configuración de partículas.
- */
-export const PARTICLES = {
+/*==============================================================================
+    PARTÍCULAS
+==============================================================================*/
+
+export const PARTICLES = Object.freeze({
 
     INTERVAL: 220,
 
@@ -101,14 +126,11 @@ export const PARTICLES = {
     MAX_DURATION: 18,
 
     COLORS: [
+
         "#ffd4e8",
+
         "#bfe8ff"
+
     ]
 
-};
-
-/**
- * Volumen inicial de la música.
- * @type {number}
- */
-export const AUDIO_VOLUME = 0.35;
+});

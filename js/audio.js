@@ -1,30 +1,45 @@
-import { AUDIO_PATH, AUDIO_VOLUME } from "./config.js";
-
 /**
- * ============================================================================
+ * =============================================================================
  * Archivo: audio.js
- * ----------------------------------------------------------------------------
- * Administra la reproducción de la música de fondo.
- * ============================================================================
+ * -----------------------------------------------------------------------------
+ * Administra toda la reproducción de música de la aplicación.
+ * =============================================================================
  */
+
+import {
+
+    AUDIO_PATH,
+
+    AUDIO_VOLUME
+
+} from "./config.js";
+
+/*==============================================================================
+    AUDIO
+==============================================================================*/
 
 /**
  * Reproductor principal.
  * @type {HTMLAudioElement}
  */
-const audio = new Audio(AUDIO_PATH);
+const player = new Audio(AUDIO_PATH);
 
-audio.loop = true;
-audio.volume = AUDIO_VOLUME;
+player.loop = true;
+
+player.volume = AUDIO_VOLUME;
 
 /**
- * Indica si actualmente se está reproduciendo música.
+ * Estado de reproducción.
  * @type {boolean}
  */
 let playing = false;
 
+/*==============================================================================
+    MÉTODOS
+==============================================================================*/
+
 /**
- * Reproduce la música si aún no está sonando.
+ * Reproduce el audio.
  *
  * @returns {Promise<void>}
  */
@@ -35,27 +50,27 @@ export async function play() {
 
     try {
 
-        await audio.play();
+        await player.play();
 
         playing = true;
 
-    } catch {
+    } catch (error) {
 
-        console.log("El navegador bloqueó la reproducción automática.");
+        console.warn(error);
 
     }
 
 }
 
 /**
- * Pausa la música.
+ * Pausa la reproducción.
  */
 export function pause() {
 
     if (!playing)
         return;
 
-    audio.pause();
+    player.pause();
 
     playing = false;
 
@@ -66,31 +81,19 @@ export function pause() {
  */
 export function toggle() {
 
-    if (playing)
-        pause();
-    else
-        play();
+    playing
+        ? pause()
+        : play();
 
 }
 
 /**
- * Indica si la música está reproduciéndose.
+ * Indica si el audio está reproduciéndose.
  *
  * @returns {boolean}
  */
 export function isPlaying() {
 
     return playing;
-
-}
-
-/**
- * Devuelve la instancia del reproductor.
- *
- * @returns {HTMLAudioElement}
- */
-export function getAudio() {
-
-    return audio;
 
 }

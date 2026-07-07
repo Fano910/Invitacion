@@ -1,26 +1,50 @@
 /**
- * ============================================================================
+ * =============================================================================
  * Archivo: main.js
- * ----------------------------------------------------------------------------
+ * -----------------------------------------------------------------------------
  * Punto de entrada de la aplicación.
- * Este archivo únicamente coordina la inicialización de los módulos.
- * ============================================================================
+ * =============================================================================
  */
 
-/**
- * ============================================================================
- * Archivo: main.js
- * ----------------------------------------------------------------------------
- * Punto de entrada de la aplicación.
- * ============================================================================
- */
+import {
 
-import { initializeInvitation } from "./invitation.js";
-import { initializeCountdown } from "./countdown.js";
-import { initializeButtons } from "./buttons.js";
-import { initializeHearts } from "./hearts.js";
-import { initializeParticles } from "./particles.js";
-import { initializeAnimations } from "./animations.js";
+    initializeInvitation
+
+} from "./invitation.js";
+
+import {
+
+    initializeCountdown
+
+} from "./countdown.js";
+
+import {
+
+    initializeButtons
+
+} from "./buttons.js";
+
+import {
+
+    initializeHearts
+
+} from "./hearts.js";
+
+import {
+
+    initializeParticles
+
+} from "./particles.js";
+
+import {
+
+    initializeAnimations
+
+} from "./animations.js";
+
+/*==============================================================================
+    INICIALIZACIÓN
+==============================================================================*/
 
 /**
  * Inicializa completamente la aplicación.
@@ -28,16 +52,21 @@ import { initializeAnimations } from "./animations.js";
 function initializeApplication() {
 
     initializeInvitation();
+
     initializeCountdown();
+
     initializeButtons();
+
     initializeHearts();
+
     initializeParticles();
+
     initializeAnimations();
 
 }
 
 /*
- * El script es de tipo module y se encuentra al final del body,
- * por lo que el DOM ya está construido.
+ * main.js es cargado como módulo al final del <body>,
+ * por lo que el DOM ya está completamente construido.
  */
 initializeApplication();

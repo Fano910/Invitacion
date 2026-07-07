@@ -1,18 +1,45 @@
 /**
- * ============================================================================
+ * =============================================================================
  * Archivo: hearts.js
- * ----------------------------------------------------------------------------
- * Genera y administra los corazones flotantes del fondo.
- * ============================================================================
+ * -----------------------------------------------------------------------------
+ * Genera los corazones flotantes del fondo.
+ * =============================================================================
  */
 
-import { HEARTS } from "./config.js";
-import { background } from "./dom.js";
+import {
 
-const ICONS = ["💙", "🩷"];
+    HEARTS
+
+} from "./config.js";
+
+import {
+
+    background
+
+} from "./dom.js";
+
+/*==============================================================================
+    CONSTANTES
+==============================================================================*/
+
+const HEARTS_ICONS = [
+
+    "💙",
+
+    "🩷"
+
+];
+
+/*==============================================================================
+    FUNCIONES PRIVADAS
+==============================================================================*/
 
 /**
  * Devuelve un número aleatorio.
+ *
+ * @param {number} min
+ * @param {number} max
+ * @returns {number}
  */
 function random(min, max) {
 
@@ -21,18 +48,21 @@ function random(min, max) {
 }
 
 /**
- * Crea un corazón.
+ * Crea un corazón flotante.
  */
 function createHeart() {
 
     const heart = document.createElement("div");
 
-    heart.classList.add("heart");
+    heart.className = "heart";
 
     heart.textContent =
-        ICONS[Math.floor(Math.random() * ICONS.length)];
+        HEARTS_ICONS[
+        Math.floor(Math.random() * HEARTS_ICONS.length)
+        ];
 
-    heart.style.left = `${Math.random() * 100}vw`;
+    heart.style.left =
+        `${Math.random() * 100}vw`;
 
     heart.style.fontSize =
         `${random(HEARTS.MIN_SIZE, HEARTS.MAX_SIZE)}px`;
@@ -40,7 +70,11 @@ function createHeart() {
     heart.style.animationDuration =
         `${random(HEARTS.MIN_DURATION, HEARTS.MAX_DURATION)}s`;
 
-    background.appendChild(heart);
+    background.appendChild(
+
+        heart
+
+    );
 
     setTimeout(() => {
 
@@ -50,19 +84,33 @@ function createHeart() {
 
 }
 
+/*==============================================================================
+    API PÚBLICA
+==============================================================================*/
+
 /**
- * Inicializa el módulo.
+ * Inicializa la animación de corazones.
  */
 export function initializeHearts() {
 
-    createHeart();
-
     for (let i = 0; i < 15; i++) {
 
-        setTimeout(createHeart, i * 250);
+        setTimeout(
+
+            createHeart,
+
+            i * 250
+
+        );
 
     }
 
-    setInterval(createHeart, HEARTS.INTERVAL);
+    setInterval(
+
+        createHeart,
+
+        HEARTS.INTERVAL
+
+    );
 
 }
