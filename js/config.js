@@ -95,15 +95,15 @@ export const HEARTS = Object.freeze({
 
     INTERVAL: 450,
 
-    LIFE_TIME: 15000,
+    LIFE_TIME: 25000,
 
     MIN_SIZE: 18,
 
     MAX_SIZE: 42,
 
-    MIN_DURATION: 6,
+    MIN_DURATION: 12,
 
-    MAX_DURATION: 14
+    MAX_DURATION: 24
 
 });
 
@@ -115,15 +115,15 @@ export const PARTICLES = Object.freeze({
 
     INTERVAL: 220,
 
-    LIFE_TIME: 18000,
+    LIFE_TIME: 28000,
 
     MIN_SIZE: 6,
 
     MAX_SIZE: 24,
 
-    MIN_DURATION: 8,
+    MIN_DURATION: 14,
 
-    MAX_DURATION: 18,
+    MAX_DURATION: 28,
 
     COLORS: [
 

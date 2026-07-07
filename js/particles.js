@@ -69,7 +69,21 @@ function createParticle() {
 
     particle.style.height = `${size}px`;
 
-    particle.style.left = `${Math.random() * 100}vw`;
+    particle.style.left = "50vw";
+    particle.style.top = "50vh";
+
+    // Sesgo hacia los lados para las partículas también
+    const angle = Math.random() * Math.PI * 2;
+    const distanceX = random(40, 90); 
+    const distanceY = random(20, 70); 
+    
+    const tx = Math.cos(angle) * distanceX;
+    const ty = Math.sin(angle) * distanceY;
+    const scale = random(1, 4);
+
+    particle.style.setProperty("--tx", `${tx}vw`);
+    particle.style.setProperty("--ty", `${ty}vh`);
+    particle.style.setProperty("--s", scale);
 
     particle.style.animationDuration =
         `${random(PARTICLES.MIN_DURATION, PARTICLES.MAX_DURATION)}s`;

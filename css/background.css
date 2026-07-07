@@ -195,67 +195,43 @@
 @keyframes floatHeart {
 
     from {
-
-        transform:
-            translateY(110vh) rotate(0deg);
-
+        transform: translate(0, 0) scale(0);
         opacity: 0;
-
     }
 
-    15% {
-
-        opacity: .40;
-
+    20% {
+        opacity: 0.6;
     }
 
     80% {
-
-        opacity: .40;
-
+        opacity: 0.6;
     }
 
     to {
-
-        transform:
-            translateY(-120vh) rotate(360deg);
-
+        transform: translate(var(--tx), var(--ty)) scale(var(--s));
         opacity: 0;
-
     }
 
 }
 
 @keyframes particle {
 
-    0% {
-
-        transform:
-            translateY(110vh) translateX(0);
-
+    from {
+        transform: translate(0, 0) scale(0);
         opacity: 0;
-
     }
 
     20% {
-
         opacity: .22;
-
     }
 
     80% {
-
         opacity: .22;
-
     }
 
-    100% {
-
-        transform:
-            translateY(-120vh) translateX(120px);
-
+    to {
+        transform: translate(var(--tx), var(--ty)) scale(var(--s));
         opacity: 0;
-
     }
 
 }
