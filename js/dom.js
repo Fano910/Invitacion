@@ -40,8 +40,23 @@ export const calendar =
 export const confirm =
     document.getElementById("confirm");
 
-export const music =
-    document.getElementById("music");
+/*==============================================================================
+    REPRODUCTOR DE MÚSICA
+==============================================================================*/
+
+export const musicPlayer = {
+    container: document.getElementById("music-player"),
+    playPauseBtn: document.getElementById("play-pause"),
+    prevBtn: document.getElementById("prev-song"),
+    nextBtn: document.getElementById("next-song"),
+    songName: document.getElementById("song-name"),
+    artistName: document.getElementById("artist-name"),
+    artistLink: document.getElementById("artist-link"),
+    songTime: document.getElementById("song-time"),
+    progressContainer: document.getElementById("progress-container"),
+    progressBar: document.getElementById("progress-bar"),
+    volumeSlider: document.getElementById("volume-slider")
+};
 
 /*==============================================================================
     CUENTA REGRESIVA

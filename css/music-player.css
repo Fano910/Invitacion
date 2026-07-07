@@ -1,0 +1,266 @@
+/**
+ * =============================================================================
+ * Archivo: music-player.css
+ * -----------------------------------------------------------------------------
+ * Estilos para el reproductor de música fijo en la parte inferior.
+ * =============================================================================
+ */
+
+#music-player {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(450px, 92%);
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(15px);
+    border-radius: 20px;
+    padding: 15px 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(255, 255, 255, 0.6);
+    z-index: 1000;
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    opacity: 0;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    pointer-events: none;
+    /* Initially disabled until shown */
+}
+
+#music-player.visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.player-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.song-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+    color: #666;
+    font-weight: 500;
+}
+
+#song-name {
+    font-size: 14px;
+    font-weight: 700;
+    color: #333;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.control-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    color: #666;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    transition: all 0.2s ease;
+}
+
+.control-btn:hover {
+    background: rgba(0, 0, 0, 0.05);
+    color: #333;
+    transform: scale(1.1);
+}
+
+#play-pause {
+    background: linear-gradient(135deg, #7dc9ff, #ffc6df);
+    color: white;
+    font-size: 18px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+#play-pause:hover {
+    background: linear-gradient(135deg, #6bb8ee, #eeb5ce);
+    color: white;
+    transform: scale(1.1) translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.progress-container {
+    width: 100%;
+    height: 6px;
+    background: rgba(0, 0, 0, 0.08);
+    border-radius: 10px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #7dc9ff, #ffc6df);
+    border-radius: 10px;
+    transition: width 0.1s linear;
+}
+
+.song-details {
+    display: flex;
+    flex-direction: column;
+    max-width: 65%;
+}
+
+#artist-name {
+    font-size: 11px;
+    font-weight: 400;
+    color: #888;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.bottom-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    margin-top: 5px;
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    /* Centrado absoluto en escritorio */
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.extra-controls {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-left: auto;
+    /* Empuja a la derecha */
+}
+
+.volume-container-vertical {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    border-left: 1px solid rgba(0, 0, 0, 0.1);
+    padding-left: 15px;
+    width: 30px; /* Ancho fijo para evitar superposición */
+}
+
+.slider-wrapper {
+    width: 14px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#volume-slider {
+    width: 70px;
+    height: 6px;
+    -webkit-appearance: none;
+    appearance: none;
+    /* Degradado dinámico basado en la variable CSS --val inyectada por JS */
+    background: linear-gradient(to right, #7dc9ff 0%, #ffc6df var(--val, 35%), rgba(0, 0, 0, 0.1) var(--val, 35%), rgba(0, 0, 0, 0.1) 100%);
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+    transform: rotate(-90deg);
+    margin: 0;
+}
+
+#volume-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #7dc9ff, #ffc6df);
+    cursor: pointer;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+
+#volume-slider::-moz-range-thumb {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #7dc9ff, #ffc6df);
+    cursor: pointer;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+    border: none;
+}
+
+.attribution {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    font-size: 10px;
+}
+
+#artist-link {
+    color: #7dc9ff;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+#artist-link:hover {
+    text-decoration: underline;
+}
+
+.pixabay-legend {
+    color: #999;
+}
+
+/* ==========================================================================
+   RESPONSIVE PARA TELÉFONOS
+========================================================================== */
+@media (max-width: 600px) {
+    #music-player {
+        width: calc(100% - 40px);
+        bottom: 10px;
+    }
+
+    .bottom-row {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .controls {
+        position: relative;
+        left: auto;
+        transform: none;
+    }
+
+    .extra-controls {
+        width: 100%;
+        justify-content: space-between;
+        margin-left: 0;
+        border-top: 1px solid rgba(0, 0, 0, 0.05);
+        padding-top: 8px;
+    }
+}

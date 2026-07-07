@@ -47,11 +47,53 @@ export const WHATSAPP_URL =
 ==============================================================================*/
 
 /**
- * Ruta del archivo de audio.
- * @type {string}
+ * Lista de reproducción de música.
+ * @type {Array<{name: string, path: string}>}
  */
-export const AUDIO_PATH =
-    "assets/atlasaudio-nostalgic-piano.mp3";
+export const PLAYLIST = [
+    {
+        name: "Nostalgic Piano",
+        artist: "AtlasAudio",
+        url: "https://pixabay.com/users/atlasaudio-54514918/",
+        path: "assets/playlist/atlasaudio-nostalgic-piano.mp3"
+    },
+    {
+        name: "Inside You",
+        artist: "LemonMusicStudio",
+        url: "https://open.spotify.com/artist/4XWZhZ32YrVV5lvpF7cr1E?si=tnbSklR7SJyPNKiHP4MbHA",
+        path: "assets/playlist/lemonmusicstudio-inside-you.mp3"
+    },
+    {
+        name: "Lofi Beats",
+        artist: "MondaMusic",
+        url: "https://pixabay.com/users/mondamusic-54713575/",
+        path: "assets/playlist/mondamusic-lofi-beats.mp3"
+    },
+    {
+        name: "Baby Smile",
+        artist: "Angel4Leon",
+        url: "https://pixabay.com/users/angel4leon-560486/",
+        path: "assets/playlist/angel4leon-baby-smile.mp3"
+    },
+    {
+        name: "Mothers Day",
+        artist: "JonasBlakewood",
+        url: "https://pixabay.com/users/jonasblakewood-48502311/",
+        path: "assets/playlist/jonasblakewood-mothers-day.mp3"
+    },
+    {
+        name: "Background Music",
+        artist: "Alex Morgan",
+        url: "https://pixabay.com/users/alex-morgan-54692529/",
+        path: "assets/playlist/alex-morgan-background-music.mp3"
+    },
+    {
+        name: "Inspiring",
+        artist: "SigmaMusicArt",
+        url: "https://pixabay.com/users/sigmamusicart-36860929/",
+        path: "assets/playlist/sigmamusicart-background-music-inspiring.mp3"
+    }
+];
 
 /**
  * Volumen inicial.

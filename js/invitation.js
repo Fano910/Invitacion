@@ -12,7 +12,9 @@ import {
 
     invitation,
 
-    discover
+    discover,
+    
+    musicPlayer
 
 } from "./dom.js";
 
@@ -60,6 +62,11 @@ async function showInvitation() {
     }
 
     launchConfetti();
+    
+    // Mostrar reproductor
+    if (musicPlayer.container) {
+        musicPlayer.container.classList.add("visible");
+    }
 
 }
 
