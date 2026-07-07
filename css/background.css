@@ -1,0 +1,249 @@
+/**
+==============================================================================
+Archivo: background.css
+------------------------------------------------------------------------------
+Todo el fondo animado:
+
+• Nubes
+• Corazones
+• Partículas
+==============================================================================
+*/
+
+/*==============================
+FONDO
+==============================*/
+
+#background {
+
+    position: fixed;
+
+    inset: 0;
+
+    overflow: hidden;
+
+    z-index: -10;
+
+}
+
+/*==============================
+NUBES
+==============================*/
+
+.cloud {
+
+    position: absolute;
+
+    width: 180px;
+    height: 60px;
+
+    background: #fff;
+
+    border-radius: 100px;
+
+    opacity: .55;
+
+    filter: blur(.5px);
+
+    animation: cloudMove linear infinite;
+
+}
+
+.cloud::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 80px;
+    height: 80px;
+
+    top: -35px;
+    left: 25px;
+
+    border-radius: 50%;
+
+    background: #fff;
+
+}
+
+.cloud::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 95px;
+    height: 95px;
+
+    top: -45px;
+    right: 20px;
+
+    border-radius: 50%;
+
+    background: #fff;
+
+}
+
+.c1 {
+
+    top: 8%;
+    left: -220px;
+
+    animation-duration: 42s;
+
+}
+
+.c2 {
+
+    top: 28%;
+    left: -260px;
+
+    transform: scale(.8);
+
+    animation-duration: 55s;
+
+}
+
+.c3 {
+
+    top: 58%;
+    left: -230px;
+
+    transform: scale(1.2);
+
+    animation-duration: 65s;
+
+}
+
+@keyframes cloudMove {
+
+    from {
+
+        transform: translateX(0);
+
+    }
+
+    to {
+
+        transform: translateX(calc(100vw + 450px));
+
+    }
+
+}
+
+/*==============================
+CORAZONES
+==============================*/
+
+.heart {
+
+    position: absolute;
+
+    user-select: none;
+
+    opacity: .3;
+
+    animation: floatHeart linear infinite;
+
+}
+
+@keyframes floatHeart {
+
+    from {
+
+        transform:
+            translateY(110vh) rotate(0deg);
+
+        opacity: 0;
+
+    }
+
+    15% {
+
+        opacity: .4;
+
+    }
+
+    80% {
+
+        opacity: .4;
+
+    }
+
+    to {
+
+        transform:
+            translateY(-120vh) rotate(360deg);
+
+        opacity: 0;
+
+    }
+
+}
+
+/*==============================
+PARTÍCULAS
+==============================*/
+
+#particles {
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    overflow: hidden;
+
+    z-index: -5;
+
+}
+
+.particle {
+
+    position: absolute;
+
+    border-radius: 50%;
+
+    opacity: .18;
+
+    filter: blur(.5px);
+
+    animation: particle linear infinite;
+
+}
+
+@keyframes particle {
+
+    0% {
+
+        transform:
+            translateY(110vh) translateX(0);
+
+        opacity: 0;
+
+    }
+
+    20% {
+
+        opacity: .22;
+
+    }
+
+    80% {
+
+        opacity: .22;
+
+    }
+
+    100% {
+
+        transform:
+            translateY(-120vh) translateX(120px);
+
+        opacity: 0;
+
+    }
+
+}
