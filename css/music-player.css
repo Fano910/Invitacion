@@ -135,9 +135,8 @@
 
 .bottom-row {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    position: relative;
     width: 100%;
     margin-top: 5px;
 }
@@ -146,19 +145,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 20px;
-    /* Centrado absoluto en escritorio */
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-.extra-controls {
-    display: flex;
-    align-items: center;
     gap: 15px;
-    margin-left: auto;
-    /* Empuja a la derecha */
 }
 
 .volume-container-vertical {
@@ -218,8 +205,11 @@
 .attribution {
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
+    align-items: flex-start;
+    justify-content: center;
     font-size: 10px;
+    margin-left: 5px;
+    line-height: 1.2;
 }
 
 #artist-link {
@@ -244,23 +234,9 @@
         width: calc(100% - 40px);
         bottom: 10px;
     }
-
-    .bottom-row {
-        flex-direction: column;
-        gap: 15px;
-    }
-
+    
+    /* Make the button gaps slightly smaller on very small screens */
     .controls {
-        position: relative;
-        left: auto;
-        transform: none;
-    }
-
-    .extra-controls {
-        width: 100%;
-        justify-content: space-between;
-        margin-left: 0;
-        border-top: 1px solid rgba(0, 0, 0, 0.05);
-        padding-top: 8px;
+        gap: 10px;
     }
 }
